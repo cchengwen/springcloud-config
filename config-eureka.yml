@@ -24,7 +24,7 @@ eureka:
     service-url:  # 监控页面
       # 单机：defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       # 集群（关联）注：本机模拟测试无法测试出集群效果，需要不同的电脑测试才可（不同ip与端口） http://localhost:7002/eureka/,http://localhost:7003/eureka/
-      #defaultZone: http://192.168.2.101
+      defaultZone: http://192.168.2.101
 
 
 
@@ -50,7 +50,7 @@ eureka:
     service-url:  # 监控页面
       # 单机：defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       # 集群（关联）注：本机模拟测试无法测试出集群效果，需要不同的电脑测试才可（不同ip与端口） http://localhost:7002/eureka/,http://localhost:7003/eureka/
-      #defaultZone: http://192.168.2.101
+      defaultZone: http://192.168.2.101
 
 
 
