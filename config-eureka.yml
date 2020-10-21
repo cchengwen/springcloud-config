@@ -1,0 +1,58 @@
+spring:
+  profiles:
+    active: dev
+
+
+---
+# 端口配置
+server:
+  port: 7001
+  
+  # spring的配置
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-eureka
+
+# eureka 配置
+eureka:
+  instance:
+    hostname: localhost  # Eurekk服务端的实例名称
+  client:
+    register-with-eureka: false  # 表示是否向Eureka注册中心注册自己，false为不需要注册
+    fetch-registry: false  #  fetch-registry 如果为false，则表示自己为注册中心
+    service-url:  # 监控页面
+      # 单机：defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 集群（关联）注：本机模拟测试无法测试出集群效果，需要不同的电脑测试才可（不同ip与端口） http://localhost:7002/eureka/,http://localhost:7003/eureka/
+      defaultZone: http://192.168.2.101
+
+
+
+---
+
+# 端口配置
+server:
+  port: 7002
+  
+# spring的配置
+spring:
+  profiles: test
+  application:
+    name: springcloud-config-eureka
+
+# eureka 配置
+eureka:
+  instance:
+    hostname: localhost  # Eurekk服务端的实例名称
+  client:
+    register-with-eureka: false  # 表示是否向Eureka注册中心注册自己，false为不需要注册
+    fetch-registry: false  #  fetch-registry 如果为false，则表示自己为注册中心
+    service-url:  # 监控页面
+      # 单机：defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 集群（关联）注：本机模拟测试无法测试出集群效果，需要不同的电脑测试才可（不同ip与端口） http://localhost:7002/eureka/,http://localhost:7003/eureka/
+      defaultZone: http://192.168.2.101
+
+
+
+
+

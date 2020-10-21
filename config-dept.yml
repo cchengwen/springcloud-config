@@ -1,0 +1,86 @@
+# 激活配置
+spring:
+  profiles:
+    active: dev
+
+
+---
+
+server:
+  port: 8001
+
+# mybatis 配置
+mybatis:
+  type-aliases-package: com.kuang.springcloud.pojo  # 实体类路径配置
+#  config-location: classpath:mybatis/mybatis-config.xml # mybatis的核心配置文件
+  mapper-locations: classpath:mybatis/mapper/*.xml # xml文件路径配置
+
+# spring的配置
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-dept # 项目名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 数据源
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db01?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+
+# Eureka 的配置，服务注册到哪里（即：注册服务到注册中心）
+eureka:
+  client:
+    service-url:
+      # 单机配置：defaultZone: http://localhost:7001/eureka/
+      # 集群配置 http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+      defaultZone: http://localhost:7001/eureka/,http:192.168.2.101
+  instance:
+    instance-id: springcloud-provider-dept-8001  # 修改 Eureka上的默认描述信息
+    prefer-ip-address: true # 为true时，可以显示服务的IP地址
+
+
+# info 配置
+info:
+  app.name: kuangshen-springcloud
+  company.name: blog.kuangstudy.com
+  
+  
+---
+
+server:
+  port: 8002
+
+# mybatis 配置
+mybatis:
+  type-aliases-package: com.kuang.springcloud.pojo  # 实体类路径配置
+#  config-location: classpath:mybatis/mybatis-config.xml # mybatis的核心配置文件
+  mapper-locations: classpath:mybatis/mapper/*.xml # xml文件路径配置
+
+# spring的配置
+spring:
+  profiles: test
+  application:
+    name: springcloud-config-dept # 项目名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 数据源
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db02?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+
+# Eureka 的配置，服务注册到哪里（即：注册服务到注册中心）
+eureka:
+  client:
+    service-url:
+      # 单机配置：defaultZone: http://localhost:7001/eureka/
+      # 集群配置 http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+      defaultZone: http://localhost:7001/eureka/,http:192.168.2.101
+  instance:
+    instance-id: springcloud-provider-dept-8001  # 修改 Eureka上的默认描述信息
+    prefer-ip-address: true # 为true时，可以显示服务的IP地址
+
+
+# info 配置
+info:
+  app.name: kuangshen-springcloud
+  company.name: blog.kuangstudy.com
